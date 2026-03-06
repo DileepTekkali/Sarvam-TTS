@@ -1,0 +1,18 @@
+ఉదయం వెలుగు తెచ్చిన కొత్త ఆశలతో
+మనసు మెల్లగా పాడే మధుర గీతం.
+గాలిలో తేలే సువాసనల లాగా
+స్వప్నాలు నాలో నెమ్మదిగా వికసిస్తాయి.
+
+పచ్చని చెట్ల నీడలో నడిచే దారిలో
+జీవితం చెప్పే చిన్న కథలు వినిపిస్తాయి.
+నవ్వులు పూసే ప్రతి క్షణంలో
+ఆనందం మెల్లగా మనసులో నిలుస్తుంది.
+
+ఆకాశం నీలి రంగులో మెరిసే వేళ
+పక్షుల గానం వినిపించే స్వరం.
+మన ప్రయాణం ఎంత దూరమైనా
+ధైర్యం తోడుంటే దారి సులభమే.generate with this text i have all ready installed requirements but i think it was not working if anything gone wrong fix the error please run before doing the error fixing
+
+---
+
+i have already pasted the sarvam api key in .env file is the code according to it?

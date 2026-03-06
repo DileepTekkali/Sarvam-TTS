@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "02103e72be09",
+  "session_id": "1c74355d-9a0c-47ab-8c51-82c268199813",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-06T03:05:48.303755Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "sarvam_telugu_tts.mp3"
+  ],
+  "agent": "Gemini CLI",
+  "turn_id": "ab3be07ab113",
+  "token_usage": {
+    "input_tokens": 346633,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 242534,
+    "output_tokens": 3338,
+    "api_call_count": 17
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-06T03:05:44.422631Z",
+    "agent_lines": 0,
+    "human_added": 209,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 209,
+    "agent_percentage": 0
+  }
+}
