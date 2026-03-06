@@ -1,18 +1,23 @@
+import os
 import requests
 import base64
 import sys
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Constants
 API_ENDPOINT = "https://api.sarvam.ai/text-to-speech"
-# The user will manually paste their API key here
-API_KEY = "PASTE_YOUR_SARVAM_API_KEY_HERE"
+# Get API key from environment variable
+API_KEY = os.getenv("SARVAM_API_KEY")
 
 def generate_speech(text, voice, output_filename="output_audio.mp3"):
     """
     Sends text to Sarvam AI TTS API and saves the resulting audio.
     """
-    if API_KEY == "PASTE_YOUR_SARVAM_API_KEY_HERE":
-        print("Error: Please update the API_KEY variable in tts_cli.py with your Sarvam AI API key.")
+    if not API_KEY or API_KEY == "PASTE_YOUR_SARVAM_API_KEY_HERE":
+        print("Error: SARVAM_API_KEY not found. Please set it in your .env file.")
         return False
 
     # Prepare headers and payload
@@ -36,19 +41,24 @@ def generate_speech(text, voice, output_filename="output_audio.mp3"):
         # Check if request was successful
         if response.status_code == 200:
             data = response.json()
+            audio_content = None
+            
             if "audio_content" in data:
-                # API returns Base64 encoded audio
-                audio_data = base64.b64decode(data["audio_content"])
-                
+                audio_content = base64.b64decode(data["audio_content"])
+            elif "audios" in data and isinstance(data["audios"], list) and len(data["audios"]) > 0:
+                # Concatenate multiple audio chunks if returned
+                audio_content = b"".join([base64.b64decode(a) for a in data["audios"]])
+            
+            if audio_content:
                 # Save the audio
                 with open(output_filename, "wb") as audio_file:
-                    audio_file.write(audio_data)
+                    audio_file.write(audio_content)
                 
                 print("Audio generated successfully.")
                 print(f"Saved as {output_filename}")
                 return True
             else:
-                print("Error: Invalid response format from API (missing audio_content).")
+                print("Error: Invalid response format from API (missing audio content).")
         else:
             print(f"Error: API request failed with status code {response.status_code}")
             print(f"Response: {response.text}")
@@ -74,15 +84,28 @@ def main():
 
     print("--- Sarvam AI Telugu Text-to-Speech CLI ---")
     
-    # 1. Ask for Telugu text
-    telugu_text = input("\nEnter Telugu text for speech generation: ").strip()
+    # 1. Ask for Telugu text (Supporting multi-line input)
+    print("\nEnter or paste Telugu text for speech generation.")
+    print("(Press Ctrl+D on Mac/Linux or Ctrl+Z on Windows followed by Enter to finish):")
+    
+    lines = []
+    try:
+        while True:
+            line = input()
+            lines.append(line)
+    except EOFError:
+        pass
+
+    telugu_text = "\n".join(lines).strip()
+    
     if not telugu_text:
         print("Error: Telugu text cannot be empty.")
         return
 
     # 2. Voice selection
     print("\nAvailable voices:")
-    voices = ["anusha", "meera", "arya", "vani"]
+    # Voices compatible with bulbul:v3 for Telugu
+    voices = ["aditya", "ritu", "kavya", "priya"]
     for i, voice in enumerate(voices, 1):
         print(f"{i}. {voice}")
 
