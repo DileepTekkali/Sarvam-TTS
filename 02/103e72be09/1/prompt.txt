@@ -1,0 +1,64 @@
+Sarvam Telugu Story TTS CLI
+A professional CLI tool to convert Telugu text into high-quality speech using the Sarvam AI Text-to-Speech (Bulbul v3) API.
+
+Project Description
+This tool allows users to generate expressive Telugu audio from text input. It features an interactive CLI for voice selection and saves the output as high-quality MP3 files, making it ideal for storytelling and content creation.
+
+Project Structure
+sarvam-tts-cli
+├── tts_cli.py
+├── requirements.txt
+├── story1.mp3
+├── story2.mp3
+└── README.md
+Installation Steps
+Clone the repository:
+
+git clone <repo-url>
+cd sarvam-tts-cli
+Install dependencies:
+
+pip install -r requirements.txt
+API Key Setup
+Before running the script, you must provide your Sarvam AI API key.
+
+Open tts_cli.py.
+Find the line: API_KEY = "PASTE_YOUR_SARVAM_API_KEY_HERE"
+Replace the placeholder with your actual API key.
+Running the Script
+Run the application using Python:
+
+python tts_cli.py
+CLI Usage Example
+Select Voice:
+
+1. anusha
+2. meera
+3. arya
+4. vani
+
+Enter choice: 2
+
+Enter Telugu text:
+ఒక చిన్న గ్రామంలో రాము అనే బాలుడు ఉండేవాడు...
+
+Generating audio...
+Audio generated successfully.
+Saved as output_audio.mp3
+Example Stories
+Example 1: The Thirsty Crow (తెలివైన కాకి)
+Text: ఒక ఊరిలో ఒక తెలివైన కాకి ఉండేది. దానికి ఒకరోజు చాలా దాహం వేసింది. నీళ్ల కోసం వెతుకుతుండగా ఒక కుండ కనిపించింది. కుండలో నీళ్లు చాలా తక్కువగా ఉన్నాయి. కాకి తన తెలివితేటలతో రాళ్లను కుండలో వేసి నీటిని పైకి తెచ్చి తాగి సంతోషించింది.
+
+Example 1 Audio:
+
+Example 2: Our Village (మా ఊరు)
+Text: మా ఊరు చాలా అందంగా ఉంటుంది. ఊరి చుట్టూ పచ్చని పొలాలు, ఎత్తైన కొండలు ఉన్నాయి. ఉదయాన్నే పక్షుల కిలకిలరావాలు వినడం చాలా ఆనందంగా ఉంటుంది. ఊరి ప్రజలందరూ ఒకరికొకరు సహాయం చేసుకుంటూ కలిసిమెలిసి ఉంటారు.
+
+Example 2 Audio:
+
+License
+This project is open-source and available under the MIT License. no playing occur in readme.md file in github please check them once and make sure the audio will be playable in git hub .md file
+
+---
+
+git add commit and push
